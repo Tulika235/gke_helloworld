@@ -8,4 +8,4 @@ steps:
   args: ['set', 'image', 'deployment/hello-web', 'hello-web=gcr.io/cloudbuilddemo/gke_helloworld:1.0.$REVISION_ID']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=hello-web-cluster'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
