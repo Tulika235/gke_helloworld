@@ -1,10 +1,10 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'Building an image'
   args: ['build', '-t', 'gcr.io/cloudbuilddemo/gke_helloworld:1.0.$REVISION_ID', '.']
   timeout: 180s
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'Pushing the image to the Google Container Registry'
   args: ['push', 'gcr.io/cloudbuilddemo/gke_helloworld:1.0.$REVISION_ID']
-- name: 'gcr.io/cloud-builders/kubectl'
+- name: 'Apply a rolling update to the existing deployment with an image update'
   args: ['set', 'image', 'deployment/hello-web', 'hello-web=gcr.io/cloudbuilddemo/gke_helloworld:1.0.$REVISION_ID']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
